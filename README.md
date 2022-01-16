@@ -51,9 +51,9 @@ network:
 sudo netplan apply
 ```
 #### Router 1 (School1)
-See [backups/show_run_school1.txt] (School1 Router Configuration) file for more info.
+See [backups/show_run_school1.txt](School1 Router Configuration) file for more info.
 #### Router 2 (School2)
-See [backups/show_run_school2.txt] (School2 Router Configuration) file for more info.
+See [backups/show_run_school2.txt](School2 Router Configuration) file for more info.
 ## Ansible Automation
 ### Ansible 'hosts' File
-See [hosts] (hosts) file for more information.
+See [hosts](hosts) file for more information.
