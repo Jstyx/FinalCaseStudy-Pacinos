@@ -12,3 +12,10 @@ Pacinos, Jerglen Ray A. (4th Year - Computer Engineering)
 * VirtualBox
 * Cisco 3725
 
+### Network Topology
+<img src="assets/Final - Topology.png">
+
+### Devices
+* 2 x Ansible Control Node (DEVASC Lab VM)
+* 2 x Cisco 3725 Router
+* 2 x Switch
