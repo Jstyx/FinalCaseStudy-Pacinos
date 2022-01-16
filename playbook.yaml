@@ -1,0 +1,14 @@
+---
+# Initial Configuration Checking
+- import_playbook: yaml/ansible_test.yaml
+
+# ACL Configuration
+- import_playbook: yaml/acl_config.yaml
+
+# OSPF Configuration
+- import_playbook: yaml/ospf_config.yaml
+
+# Saving Backup Configurations
+- import_playbook: yaml/get_ipadd.yaml
+- import_playbook: yaml/get_iproute.yaml
+- import_playbook: yaml/backup_running_configs.yaml

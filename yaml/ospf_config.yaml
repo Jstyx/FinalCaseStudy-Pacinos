@@ -1,0 +1,31 @@
+---
+  - name: Configure Single Area OSPF
+    hosts: routers
+    become_method: enable
+    gather_facts: false
+    connection: network_cli
+
+    tasks:
+      - name: Configure OSPF for School1
+        when: ansible_host == "10.0.0.1"
+        ios_config:
+          parents: router ospf 100
+          lines:
+            - network 192.168.1.0 0.0.0.255 area 0
+            - network 10.0.0.0 0.0.0.3 area 0
+            - passive-interface FastEthernet0/0
+
+
+      - name: Configure OSPF for School2
+        when: ansible_host == "10.0.0.2"
+        ios_config:
+          parents: router ospf 100
+          lines:
+            - network 10.0.0.0 0.0.0.3 area 0
+            - network 192.168.2.0 0.0.0.255 area 0
+            - passive-interface FastEthernet0/0
+
+      - name: Save Configuration
+        ios_config:
+          lines:
+            - do write

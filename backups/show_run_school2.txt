@@ -1,0 +1,166 @@
+Building configuration...
+
+Current configuration : 2000 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname school2
+!
+boot-start-marker
+boot-end-marker
+!
+enable password school123
+!
+no aaa new-model
+memory-size iomem 5
+no ip icmp rate-limit unreachable
+ip cef
+!
+!
+!
+!
+no ip domain lookup
+ip domain name www.school.com
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+username school password 0 school123
+archive
+ log config
+  hidekeys
+! 
+!
+!
+!
+ip tcp synwait-time 5
+ip ssh version 2
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.2.1 255.255.255.0
+ ip access-group 110 in
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ ip address 10.0.0.2 255.255.255.252
+ clock rate 128000
+!
+interface FastEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/1
+ no ip address
+ shutdown
+ clock rate 128000
+!
+interface Serial0/2
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface FastEthernet1/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial2/0
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial2/1
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial2/2
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+interface Serial2/3
+ no ip address
+ shutdown
+ serial restart-delay 0
+!
+router ospf 100
+ log-adjacency-changes
+ passive-interface FastEthernet0/0
+ network 10.0.0.0 0.0.0.3 area 0
+ network 192.168.2.0 0.0.0.255 area 0
+!
+ip forward-protocol nd
+ip route 0.0.0.0 0.0.0.0 Serial0/0
+ip route 0.0.0.0 0.0.0.0 Serial0/1
+!
+!
+no ip http server
+no ip http secure-server
+!
+access-list 110 deny   icmp any any echo-reply
+access-list 110 permit ip any any
+no cdp log mismatch duplex
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
+!
+!
+end
