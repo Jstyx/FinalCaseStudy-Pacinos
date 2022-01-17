@@ -48,12 +48,29 @@ network:
       gateway4: 192.168.1.1
 ```
 ```bash
-sudo netplan apply
+$ sudo netplan apply
 ```
 #### Router 1 (School1)
 See [School1 Router Configuration](backups/show_run_school1.txt) file for more info.
 #### Router 2 (School2)
 See [School2 Router Configuration](backups/show_run_school2.txt) file for more info.
 ## Ansible Automation
+
+The ansible cannot be completed if there is no hosts file that have the IP addresses and the access credentials to the ansible host. The hosts file includes ansible_user wherein it holds the username credential to access the host and ansible_password is the password for the credential. 
+
 ### Ansible 'hosts' File
 See [hosts](hosts) file for more information.
+
+Running multiple playbooks on a single playbook gives advantages when you have multiple playbooks to run. The case study includes a master playbook to run all playbook at the yaml folder. The command to execute the playbook is: 
+```
+$ ansible-playbook playbook.yaml -bK
+```
+
+The Case Study includes the following playbooks:
+-	acl_config.yaml
+-	ansible_test.yaml
+-	backup_running_configs.yaml
+-	get_ipadd.yaml
+-	get_iproute.yaml
+-	ospf_config.yaml
+
