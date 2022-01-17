@@ -74,5 +74,5 @@ The Case Study includes the following playbooks:
 -	get_iproute.yaml
 -	ospf_config.yaml
 
-### Google Drive Link: https://drive.google.com/drive/folders/1XBc289y3kqMZIKYxBmMIj48j9XH7_WHS?usp=sharing
-### Video Simulation: https://drive.google.com/file/d/1H87uaYmgNnBLVT9bNKAKO0kSb3sT4EhM/view?usp=sharing
+##### Google Drive Link: https://drive.google.com/drive/folders/1XBc289y3kqMZIKYxBmMIj48j9XH7_WHS?usp=sharing
+##### Video Simulation: https://drive.google.com/file/d/1H87uaYmgNnBLVT9bNKAKO0kSb3sT4EhM/view?usp=sharing
